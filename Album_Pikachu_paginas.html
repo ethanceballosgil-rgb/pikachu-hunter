@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#facc15">
+<title>Álbum Pikachu · Pikachu Hunter</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f4f1e8;color:#262318;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;padding:14px 12px 30px}
+header{max-width:760px;margin:0 auto 12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+header a{color:#5b4a00;text-decoration:none;font-weight:800}
+h1{font-size:1.35rem;margin:0}.subtitle{max-width:760px;margin:0 auto 12px;color:#68614b;font-size:.88rem}
+.book{max-width:760px;margin:auto;background:#fffdf5;border:2px solid #d7c99c;border-radius:18px;padding:14px;box-shadow:0 7px 20px #443b201c;position:relative}
+.book:before{content:"";position:absolute;left:50%;top:12px;bottom:12px;width:1px;background:#eee6cf;opacity:.8}
+.page-head{display:flex;justify-content:space-between;align-items:center;padding:0 3px 12px;border-bottom:1px solid #e9e0c8;gap:8px}
+.page-head strong{font-size:.9rem}.count{font-size:.75rem;color:#756a4d}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding:15px 0 5px}
+.slot{display:grid;grid-template-columns:minmax(0,1fr) 32px;gap:7px;align-items:stretch;min-height:154px;position:relative}
+.sticker{border:1.5px solid #d8cba4;border-radius:9px;background:linear-gradient(150deg,#fff,#fff8dd);padding:8px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0;position:relative;overflow:hidden}
+.sticker .emoji{font-size:2.5rem;line-height:1.25;filter:grayscale(.8);opacity:.65}
+.sticker .name{font-size:.73rem;font-weight:800;line-height:1.2;margin-top:7px;overflow-wrap:anywhere}
+.sticker .kind{font-size:.61rem;color:#827650;margin-top:4px}
+.slot.done .sticker{background:#fff3ad;border:2px solid #d8ae13}
+.slot.done .emoji{filter:none;opacity:1}
+.slot.done .name{text-decoration:line-through;text-decoration-thickness:2px;color:#76651f}
+.mark{border:1.5px solid #d8cba4;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative}
+.mark input{appearance:none;width:22px;height:22px;border:2px solid #9e915f;border-radius:4px;margin:0;cursor:pointer;background:white}
+.mark input:checked{background:#facc15;border-color:#a78300}
+.mark input:checked:after{content:"✓";display:block;text-align:center;line-height:18px;font-weight:1000;color:#352900;font-size:16px}
+.number{position:absolute;top:5px;left:7px;font-size:.55rem;color:#a0936c;font-weight:800}
+.nav{max-width:760px;margin:14px auto 0;display:flex;align-items:center;justify-content:space-between;gap:10px}
+button{border:0;border-radius:10px;padding:11px 15px;background:#facc15;color:#302600;font-weight:850;font-size:.9rem;cursor:pointer}
+button:disabled{opacity:.35;cursor:default}
+#pageLabel{font-weight:850;font-size:.9rem}
+.progress{max-width:760px;margin:12px auto 0;background:#e4ddc8;border-radius:30px;height:7px;overflow:hidden}
+#bar{height:100%;width:0;background:#d6a900;transition:width .2s}
+.footer{max-width:760px;margin:10px auto;color:#746b55;font-size:.75rem;text-align:center}
+@media(max-width:390px){.book{padding:10px}.grid{gap:10px 8px}.slot{grid-template-columns:minmax(0,1fr) 28px;min-height:145px}.sticker .emoji{font-size:2.1rem}.sticker .name{font-size:.68rem}.mark input{width:20px;height:20px}}
+</style>
+</head>
+<body>
+<header><a href="./index.html">← Pikachu Hunter</a><h1>📖 Álbum Pikachu</h1></header>
+<p class="subtitle">Marca la casilla de cada Pikachu que ya tienes. Puedes pasar las páginas y tu progreso se guarda en este móvil.</p>
+<section class="book">
+ <div class="page-head"><strong>COLECCIÓN DE PEGATINAS</strong><span class="count" id="count">0 de 107 conseguidos</span></div>
+ <div class="grid" id="grid"></div>
+</section>
+<div class="nav">
+ <button id="prev">← Anterior</button><span id="pageLabel">Página 1</span><button id="next">Siguiente →</button>
+</div>
+<div class="progress"><div id="bar"></div></div>
+<p class="footer">Las marcas se guardan en el mismo progreso de Pikachu Hunter.</p>
+<script>
+const PIKACHUS=[{"id": "costume-1", "name": "Sombrero de Papá Noel", "type": "Disfraz"}, {"id": "costume-2", "name": "Gorro de fiesta", "type": "Disfraz"}, {"id": "costume-3", "name": "Gorra original (Ash)", "type": "Disfraz"}, {"id": "costume-4", "name": "Sombrero de bruja", "type": "Disfraz"}, {"id": "costume-5", "name": "Sombrero de verano", "type": "Disfraz"}, {"id": "costume-6", "name": "Gorra Fragment", "type": "Disfraz"}, {"id": "costume-7", "name": "Corona de flores", "type": "Disfraz"}, {"id": "costume-8", "name": "Sombrero de detective", "type": "Disfraz"}, {"id": "costume-9", "name": "Sombrero de paja", "type": "Disfraz"}, {"id": "costume-10", "name": "Disfraz de Mimikyu", "type": "Disfraz"}, {"id": "costume-11", "name": "Gorro de lana", "type": "Disfraz"}, {"id": "costume-12", "name": "Pikachu clon", "type": "Disfraz"}, {"id": "costume-13", "name": "Gorro de fiesta rojo", "type": "Disfraz"}, {"id": "costume-14", "name": "Pikachu Libre", "type": "Disfraz"}, {"id": "costume-15", "name": "Sombrero safari", "type": "Disfraz"}, {"id": "costume-16", "name": "Sombrero de flor", "type": "Disfraz"}, {"id": "costume-17", "name": "Sombrero de Charizard", "type": "Disfraz"}, {"id": "costume-18", "name": "Sombrero de Umbreon", "type": "Disfraz"}, {"id": "costume-19", "name": "Sombrero de Rayquaza", "type": "Disfraz"}, {"id": "costume-20", "name": "Sombrero de Lucario", "type": "Disfraz"}, {"id": "costume-21", "name": "Pikachu volador", "type": "Disfraz"}, {"id": "costume-22", "name": "Gorra Mundial", "type": "Disfraz"}, {"id": "costume-23", "name": "Sombrero de explorador", "type": "Disfraz"}, {"id": "costume-24", "name": "Traje de Carnaval de Invierno", "type": "Disfraz"}, {"id": "costume-25", "name": "Gorro de Año Nuevo", "type": "Disfraz"}, {"id": "costume-26", "name": "Pikachu volador 5.º aniversario", "type": "Disfraz"}, {"id": "costume-27", "name": "Sombrero de Meloetta", "type": "Disfraz"}, {"id": "costume-28", "name": "Pop Star", "type": "Disfraz"}, {"id": "costume-29", "name": "Rock Star", "type": "Disfraz"}, {"id": "costume-30", "name": "Sombrero de Halloween", "type": "Disfraz"}, {"id": "costume-31", "name": "Camiseta Kariyushi", "type": "Disfraz"}, {"id": "costume-32", "name": "Pikachu volador de Okinawa", "type": "Disfraz"}, {"id": "costume-33", "name": "Flor de Shaymin", "type": "Disfraz"}, {"id": "costume-34", "name": "Gorra del JCC Pokémon", "type": "Disfraz"}, {"id": "costume-35", "name": "Sombrero de tarta", "type": "Disfraz"}, {"id": "costume-36", "name": "Pikachu Campeonato Mundial 2022", "type": "Disfraz"}, {"id": "costume-37", "name": "Bufanda de Shaymin", "type": "Disfraz"}, {"id": "costume-38", "name": "Pikachu volador verde", "type": "Disfraz"}, {"id": "costume-39", "name": "Camiseta verde", "type": "Disfraz"}, {"id": "costume-40", "name": "Pikachu volador morado", "type": "Disfraz"}, {"id": "costume-41", "name": "Camiseta morada", "type": "Disfraz"}, {"id": "costume-42", "name": "Sombrero de copa de fiesta", "type": "Disfraz"}, {"id": "costume-43", "name": "Gorra de Brendan", "type": "Disfraz"}, {"id": "costume-44", "name": "Lazo de May", "type": "Disfraz"}, {"id": "costume-45", "name": "Cerezo en flor", "type": "Disfraz"}, {"id": "costume-46", "name": "Camiseta azul", "type": "Disfraz"}, {"id": "costume-47", "name": "Pikachu volador naranja", "type": "Disfraz"}, {"id": "costume-48", "name": "Corona amatista", "type": "Disfraz"}, {"id": "costume-49", "name": "Pikachu Campeonato Mundial 2023", "type": "Disfraz"}, {"id": "costume-50", "name": "Corona aguamarina", "type": "Disfraz"}, {"id": "costume-51", "name": "Corona malaquita", "type": "Disfraz"}, {"id": "costume-52", "name": "Corona pirita", "type": "Disfraz"}, {"id": "costume-53", "name": "Corona cuarzo", "type": "Disfraz"}, {"id": "costume-54", "name": "Sombrero de detective 2023", "type": "Disfraz"}, {"id": "costume-55", "name": "Trick and Treats", "type": "Disfraz"}, {"id": "costume-56", "name": "Traje festivo 2023", "type": "Disfraz"}, {"id": "costume-57", "name": "Pañuelo de Akari", "type": "Disfraz"}, {"id": "costume-58", "name": "Gorra de Dawn", "type": "Disfraz"}, {"id": "costume-59", "name": "Gorra de Lucas", "type": "Disfraz"}, {"id": "costume-60", "name": "Gorra de Rei", "type": "Disfraz"}, {"id": "costume-61", "name": "Ph.D. Pikachu", "type": "Disfraz"}, {"id": "costume-62", "name": "Camisa batik", "type": "Disfraz"}, {"id": "costume-63", "name": "Pikachu volador rojo", "type": "Disfraz"}, {"id": "costume-64", "name": "Gorra de Cap", "type": "Disfraz"}, {"id": "costume-65", "name": "Corona lunar", "type": "Disfraz"}, {"id": "costume-66", "name": "Corona solar", "type": "Disfraz"}, {"id": "costume-67", "name": "Pikachu Campeonato Mundial 2024", "type": "Disfraz"}, {"id": "costume-68", "name": "Sari", "type": "Disfraz"}, {"id": "costume-69", "name": "Gorra de Hilbert", "type": "Disfraz"}, {"id": "costume-70", "name": "Gorra de Hilda", "type": "Disfraz"}, {"id": "costume-71", "name": "Visera de Nate", "type": "Disfraz"}, {"id": "costume-72", "name": "Visera de Rosa", "type": "Disfraz"}, {"id": "costume-73", "name": "Kurta", "type": "Disfraz"}, {"id": "costume-74", "name": "Monóculo azul", "type": "Disfraz"}, {"id": "costume-75", "name": "Monóculo rojo", "type": "Disfraz"}, {"id": "costume-76", "name": "Monóculo amarillo", "type": "Disfraz"}, {"id": "costume-77", "name": "Elegante azul", "type": "Disfraz"}, {"id": "costume-78", "name": "Elegante rojo", "type": "Disfraz"}, {"id": "costume-79", "name": "Elegante amarillo", "type": "Disfraz"}, {"id": "costume-80", "name": "Pikachu fútbol de Indonesia", "type": "Disfraz"}, {"id": "costume-81", "name": "Pikachu Campeonato Mundial 2025", "type": "Disfraz"}, {"id": "costume-82", "name": "Gorra de Calem", "type": "Disfraz"}, {"id": "costume-83", "name": "Gorra de Serena", "type": "Disfraz"}, {"id": "costume-84", "name": "Gorra de Leaf", "type": "Disfraz"}, {"id": "costume-85", "name": "Gorra de Red", "type": "Disfraz"}, {"id": "costume-86", "name": "Gorra de Ethan", "type": "Disfraz"}, {"id": "costume-87", "name": "Gorra de Lyra", "type": "Disfraz"}, {"id": "costume-88", "name": "Camiseta de béisbol", "type": "Disfraz"}, {"id": "costume-89", "name": "Visera de maratón", "type": "Disfraz"}, {"id": "costume-90", "name": "Pikachu fósil / excavador", "type": "Disfraz"}, {"id": "costume-91", "name": "Gorra del Equipo Sabiduría", "type": "Disfraz"}, {"id": "costume-92", "name": "Gorra del Equipo Instinto", "type": "Disfraz"}, {"id": "costume-93", "name": "Gorra del Equipo Valor", "type": "Disfraz"}, {"id": "costume-94", "name": "Asistente del Profesor Willow", "type": "Disfraz"}, {"id": "costume-95", "name": "PokémonXP", "type": "Disfraz"}, {"id": "costume-96", "name": "Pikachu Campeonato Mundial 2026", "type": "Disfraz"}, {"id": "costume-97", "name": "PokéXciting azul", "type": "Disfraz"}, {"id": "costume-98", "name": "PokéXciting rosa", "type": "Disfraz"}, {"id": "costume-99", "name": "PokéXciting rojo", "type": "Disfraz"}, {"id": "costume-100", "name": "PokéXciting turquesa", "type": "Disfraz"}, {"id": "costume-101", "name": "Hanbok naranja", "type": "Disfraz"}, {"id": "costume-102", "name": "Astronauta", "type": "Disfraz"}, {"id": "costume-103", "name": "Halloween 2026", "type": "Disfraz"}, {"id": "normal", "name": "Pikachu normal", "type": "Forma especial"}, {"id": "dynamax", "name": "Pikachu Dinamax", "type": "Dinamax"}, {"id": "gigantamax", "name": "Pikachu Gigamax", "type": "Gigamax"}, {"id": "shiny-normal", "name": "Pikachu variocolor (normal)", "type": "Variocolor"}];
+const KEY="pikachuHunterChecklistV2";
+let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+const PER_PAGE=4;let page=0;
+const grid=document.getElementById("grid");
+function persist(){localStorage.setItem(KEY,JSON.stringify(saved));updateCount()}
+function updateCount(){const n=PIKACHUS.filter(p=>saved[p.id]?.owned).length;document.getElementById("count").textContent=n+" de "+PIKACHUS.length+" conseguidos";document.getElementById("bar").style.width=(n/PIKACHUS.length*100)+"%"}
+function render(){
+ const start=page*PER_PAGE;grid.innerHTML="";
+ PIKACHUS.slice(start,start+PER_PAGE).forEach((p,i)=>{
+  const done=!!saved[p.id]?.owned;
+  const slot=document.createElement("article");slot.className="slot"+(done?" done":"");
+  const sticker=document.createElement("div");sticker.className="sticker";
+  const number=document.createElement("span");number.className="number";number.textContent="#"+String(start+i+1).padStart(3,"0");
+  const emoji=document.createElement("div");emoji.className="emoji";emoji.textContent="⚡";
+  const name=document.createElement("div");name.className="name";name.textContent=p.name;
+  const kind=document.createElement("div");kind.className="kind";kind.textContent=p.type;
+  sticker.append(number,emoji,name,kind);
+  const mark=document.createElement("label");mark.className="mark";mark.title="Marcar como conseguido";
+  const cb=document.createElement("input");cb.type="checkbox";cb.checked=done;cb.setAttribute("aria-label","Conseguido: "+p.name);
+  cb.addEventListener("change",()=>{saved[p.id]=saved[p.id]||{};saved[p.id].owned=cb.checked;persist();render()});
+  mark.append(cb);slot.append(sticker,mark);grid.append(slot);
+ });
+ document.getElementById("pageLabel").textContent="Página "+(page+1)+" de "+Math.ceil(PIKACHUS.length/PER_PAGE);
+ document.getElementById("prev").disabled=page===0;
+ document.getElementById("next").disabled=start+PER_PAGE>=PIKACHUS.length;
+ updateCount();
+}
+document.getElementById("prev").addEventListener("click",()=>{if(page>0){page--;render();window.scrollTo({top:0,behavior:"smooth"})}});
+document.getElementById("next").addEventListener("click",()=>{if((page+1)*PER_PAGE<PIKACHUS.length){page++;render();window.scrollTo({top:0,behavior:"smooth"})}});
+render();
+</script>
+</body></html>
