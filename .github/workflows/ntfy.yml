@@ -1,0 +1,14 @@
+name: Prueba Pikachu Hunter
+
+on:
+  workflow_dispatch:
+
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar notificacion
+        run: |
+          curl -H "Title: Pikachu Hunter" \
+          -d "¡GitHub ya puede enviarte avisos!" \
+          https://ntfy.sh/wany2013
