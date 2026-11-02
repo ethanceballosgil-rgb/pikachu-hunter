@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#facc15"><meta name="description" content="Pikachu Hunter: catálogo y checklist de Pikachu de Pokémon GO.">
+<title>Pikachu Hunter</title><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css">
+
+<style>
+.album-cover-button{display:flex;align-items:center;gap:13px;margin:16px auto 0;padding:13px 15px;max-width:420px;text-align:left;text-decoration:none;color:#302600;background:linear-gradient(135deg,#ffe66d,#facc15);border:2px solid #d5a900;border-radius:16px;box-shadow:0 5px 0 #c99b00,0 8px 16px #5a470022}
+.album-cover-icon{display:grid;place-items:center;width:54px;height:64px;flex:none;background:#fff9d9;border:2px solid #b99528;border-radius:7px 12px 12px 7px;box-shadow:inset 5px 0 #ead68a;font-size:30px}
+.album-cover-copy{display:flex;flex-direction:column;gap:3px;flex:1}.album-cover-copy b{font-size:1rem}.album-cover-copy small{font-size:.75rem;line-height:1.3;color:#594600}.album-cover-arrow{font-size:30px;font-weight:900}
+</style>
+</head><body>
+<header class="topbar"><div class="brand"><span>⚡</span> Pikachu Hunter</div><button class="top-action" onclick="document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})" aria-label="Ir al álbum">＋</button></header>
+<main>
+<section class="profile-head">
+  <div class="profile-row">
+    <div class="profile-avatar">⚡</div>
+    <div class="profile-stat"><b id="ownedCount">0</b><span>conseguidos</span></div>
+    <div class="profile-stat"><b id="totalCount">0</b><span>en el álbum</span></div>
+    <div class="profile-stat"><b id="percent">0%</b><span>completado</span></div>
+  </div>
+  <h1>Mi colección Pikachu</h1>
+  <p>¡Completa tu álbum! Marca tus Pikachu y guarda tu progreso en este móvil.</p>
+  <button class="profile-button" onclick="document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Ver mi colección</button>
+  <a class="album-cover-button" href="album.html" aria-label="Abrir álbum completo de Pikachu">
+    <span class="album-cover-icon">📖</span>
+    <span class="album-cover-copy"><b>Abrir mi álbum</b><small>Ver todas las pegatinas y marcar tus Pikachu</small></span>
+    <span class="album-cover-arrow">›</span>
+  </a>
+</section>
+<section class="stories" aria-label="Secciones rápidas">
+  <button class="story" data-filter="Todos"><span class="story-ring">⚡</span><small>Todos</small></button>
+  <button class="story" data-filter="Disfraz"><span class="story-ring">🎩</span><small>Disfraces</small></button>
+  <button class="story" data-filter="Dinamax"><span class="story-ring">💥</span><small>Dinamax</small></button>
+  <button class="story" data-filter="Gigamax"><span class="story-ring">🌟</span><small>Gigamax</small></button>
+  <button class="story" data-filter="Variocolor"><span class="story-ring">✨</span><small>Shiny</small></button>
+</section>
+<section class="stats"><div><b id="ownedCount">0</b><span>conseguidos</span></div><div><b id="totalCount">0</b><span>en la lista</span></div><div><b id="percent">0%</b><span>completado</span></div></section>
+<section id="coleccion" class="panel album-panel">
+<div class="heading"><div><p class="eyebrow">TU PROGRESO</p><h2>Álbum Pikachu</h2></div><button id="resetBtn" class="ghost">Borrar marcas</button></div>
+
+<div class="progress"><div id="progressBar"></div></div>
+<div class="filters"><input id="search" type="search" placeholder="Buscar…"><select id="typeFilter"><option value="Todos">Todas las páginas</option><option>Disfraz</option><option>Forma especial</option><option>Dinamax</option><option>Gigamax</option><option>Variocolor</option></select><select id="statusFilter"><option value="Todos">Todo el álbum</option><option value="Pendiente">Me faltan</option><option value="Conseguido">Ya los tengo</option></select></div>
+<p class="hint">Marca «Conseguido» cuando tengas ese Pikachu. También puedes marcar su versión variocolor.</p><div id="list" class="album-grid"></div></section>
+<section class="panel" id="mapa"><p class="eyebrow">MAPA Y UBICACIONES</p><h2>Buscar lugares cercanos</h2>
+<p>Esta app no puede ver apariciones en directo ni conocer dónde sale un Pikachu concreto. Puedes buscar parques, gimnasios o puntos de encuentro públicos y comprobar los eventos dentro de Pokémon GO.</p>
+<div class="map-search"><input id="place" type="text" placeholder="Ciudad o zona (ej. Santander)"><button id="mapBtn">Buscar en el mapa</button></div>
+<div class="map-links"><a id="parksLink" target="_blank" rel="noopener">Parques cercanos ↗</a><a id="raidLink" target="_blank" rel="noopener">Gimnasios y zonas de incursiones ↗</a></div>
+<div class="notice">📍 Las ubicaciones de Pokémon GO cambian según los eventos y la rotación del juego. No sigas coordenadas no verificadas ni entres en propiedades privadas.</div>
+</section>
+<section class="panel" id="fuentes"><p class="eyebrow">FUENTES Y ACTUALIZACIÓN</p><h2>Consulta el catálogo</h2>
+<p>El listado se basa en el catálogo de disfraces de Pikachu de Dittobase y las formas de Pokémon GO documentadas por Bulbapedia. Puede haber cambios o variantes regionales/de evento que se añadan más adelante.</p>
+<div class="map-links"><a href="https://www.dittobase.com/pokemon-go/pokedex/pikachu" target="_blank" rel="noopener">Catálogo de disfraces ↗</a><a href="https://bulbapedia.bulbagarden.net/wiki/Pikachu_(GO)" target="_blank" rel="noopener">Formas y Gigamax ↗</a></div>
+</section>
+</main>
+<nav class="bottom-nav" aria-label="Navegación principal">
+ <a href="#" class="active"><span>⌂</span><small>Inicio</small></a>
+ <a href="#coleccion"><span>▦</span><small>Álbum</small></a>
+ <a href="#mapa"><span>⌖</span><small>Mapa</small></a>
+ <a href="#fuentes"><span>♡</span><small>Info</small></a>
+</nav>
+<footer>Pikachu Hunter · Proyecto fan no oficial. Pokémon GO y Pokémon pertenecen a sus respectivos titulares.</footer>
+<script src="app.js"></script></body></html>
