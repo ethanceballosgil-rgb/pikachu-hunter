@@ -1,0 +1,49 @@
+:root{--yellow:#facc15;--ink:#29240c;--muted:#706b55;--paper:#fffdf4;--line:#eee7c9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.topbar{height:62px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;background:var(--yellow);font-weight:900}.brand{font-size:1.1rem}.brand span{font-size:1.4rem}.tag{font-size:.68rem;border:1px solid #6e5b00;border-radius:30px;padding:5px 9px}
+main{max-width:850px;margin:auto;padding:18px 14px 40px}.hero{min-height:250px;border-radius:24px;padding:26px;background:linear-gradient(120deg,#ffe978,#facc15);display:flex;align-items:center;justify-content:space-between;overflow:hidden}.hero>div:first-child{max-width:520px;z-index:1}.eyebrow{font-size:.68rem;letter-spacing:1.4px;font-weight:900;color:#806700;margin:0 0 7px}h1{font-size:clamp(2.5rem,10vw,4rem);line-height:.96;letter-spacing:-2px;margin:0}h1 span{color:white;text-shadow:0 2px #bd9700}.hero p:not(.eyebrow){line-height:1.5;max-width:400px}.mascot{font-size:6rem;background:#ffffff66;border-radius:50%;width:130px;height:130px;display:grid;place-items:center;flex-shrink:0}.primary-btn,button{border:0;border-radius:11px;padding:12px 15px;font-weight:800;cursor:pointer;text-decoration:none}.primary-btn{display:inline-block;background:var(--ink);color:white}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.stats div{background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-align:center}.stats b{display:block;font-size:1.5rem}.stats span{font-size:.78rem;color:var(--muted)}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:19px;margin:15px 0}.heading{display:flex;align-items:center;justify-content:space-between}h2{font-size:1.45rem;margin:0 0 12px}.ghost{background:#fff6cc;color:var(--ink)}.progress{height:10px;background:#f3eed9;border-radius:20px;overflow:hidden;margin:10px 0 15px}.progress div{height:100%;width:0;background:#e4b900;transition:width .2s}.filters{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}input,select{min-width:0;width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fffefa;font:inherit}.hint{font-size:.82rem;color:var(--muted);line-height:1.45}.list{display:grid;gap:8px;margin-top:12px}.item{border:1px solid var(--line);border-radius:12px;padding:11px 12px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.item.done{background:#fffbea;border-color:#e8d57d}.item strong{display:block;font-size:.94rem}.item small{color:var(--muted)}.checks{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.checks label{font-size:.78rem;display:flex;align-items:center;gap:5px;white-space:nowrap}.checks input{width:18px;height:18px;accent-color:#c49b00}.map-search{display:flex;gap:8px;margin:14px 0}.map-search button{background:var(--yellow);white-space:nowrap}.map-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}.map-links a{color:#725900;font-weight:700;font-size:.9rem}.notice{background:#fff6cc;border-radius:12px;padding:12px;margin-top:14px;font-size:.83rem;line-height:1.45}footer{text-align:center;padding:18px;color:#827c67;font-size:.75rem}
+@media(max-width:560px){.mascot{width:90px;height:90px;font-size:4rem;margin-left:8px}.hero{padding:22px 18px;min-height:260px}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}.item{grid-template-columns:1fr}.checks{justify-content:flex-start}.map-search{flex-direction:column}.map-search button{width:100%}}
+/* Diseño tipo álbum de pegatinas */
+.album-panel{background:#fff9df;border:2px solid #e8d78e}.compact-stats{margin:10px 0}.album-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:16px}.album-card{min-height:154px;border:2px dashed #d9c98b;border-radius:15px;background:linear-gradient(145deg,#fffef7,#fff4c8);padding:11px;display:flex;flex-direction:column;justify-content:space-between;position:relative}.album-card.owned{border:2px solid #e2bd24;background:linear-gradient(145deg,#fffbe4,#ffe98b)}.album-number{font-size:.66rem;font-weight:900;color:#99833a;letter-spacing:1px}.sticker{align-self:center;width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid #f1df9b;font-size:2.35rem;box-shadow:0 3px 0 #eadcae}.album-card:not(.owned) .sticker{filter:grayscale(1);opacity:.48}.album-card.owned .sticker{filter:none;opacity:1}.album-name{text-align:center;font-weight:850;font-size:.83rem;line-height:1.2;min-height:2.1em;display:flex;align-items:center;justify-content:center}.album-type{text-align:center;color:#87794c;font-size:.67rem}.album-checks{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:8px}.album-checks label{font-size:.7rem;display:flex;gap:4px;align-items:center}.album-checks input{width:16px;height:16px;padding:0;accent-color:#c49b00}.shiny-mark{position:absolute;top:7px;right:8px}@media(min-width:650px){.album-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:370px){.album-grid{grid-template-columns:1fr}}
+
+/* Interfaz móvil inspirada en redes sociales */
+body{background:#fff;color:#171717;padding-bottom:76px}
+.topbar{height:58px;position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee;box-shadow:none;padding:0 16px}
+.brand{font-size:1.18rem;letter-spacing:-.5px}.brand span{font-size:1.45rem}
+.top-action{background:transparent;font-size:1.7rem;padding:4px 10px;color:#171717}
+main{max-width:720px;padding:0 0 24px}
+.profile-head{padding:20px 17px 16px}
+.profile-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:16px}
+.profile-avatar{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:2.6rem;background:linear-gradient(135deg,#fff1a8,#ffcf22);border:3px solid #f2d14e;outline:2px solid white;box-shadow:0 0 0 2px #e7bd19;flex-shrink:0}
+.profile-stat{text-align:center;flex:1}.profile-stat b{display:block;font-size:1.15rem}.profile-stat span{font-size:.7rem;color:#666}
+.profile-head h1{font-size:1.25rem;letter-spacing:-.4px;line-height:1.2;margin:0 0 5px}
+.profile-head p{font-size:.88rem;color:#555;margin:0 0 12px;line-height:1.4}
+.profile-button{width:100%;background:#f3f3f3;color:#171717;border-radius:8px;padding:9px}
+.stories{display:flex;justify-content:space-around;gap:9px;padding:10px 12px 15px;border-bottom:1px solid #eee;overflow-x:auto}
+.story{background:transparent;padding:0;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:62px;color:#222}
+.story-ring{width:57px;height:57px;border-radius:50%;display:grid;place-items:center;font-size:1.65rem;background:linear-gradient(white,white) padding-box,linear-gradient(45deg,#ffcf22,#ff8b36,#e14a9b) border-box;border:2px solid transparent}
+.story small{font-size:.68rem;font-weight:600}
+.album-panel{border:0;border-radius:0;background:#fff;padding:15px 0;margin:0}
+.album-panel>.heading{padding:0 15px}.album-panel h2{font-size:1.12rem;margin:0 0 10px}
+.album-panel .eyebrow{margin-bottom:4px}
+.album-panel .progress{margin:0 15px 14px;height:5px}
+.filters{padding:0 12px;grid-template-columns:1fr 1fr 1fr}
+.filters input,.filters select{font-size:.78rem;padding:9px;border-radius:8px}
+.hint{padding:0 14px;font-size:.76rem}
+.album-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;margin-top:12px}
+.album-card{border:0;border-radius:0;min-height:150px;padding:10px 5px;background:#fff;justify-content:center;gap:6px}
+.album-card.owned{border:0;background:#fff9dc}
+.album-number{font-size:.57rem;text-align:center}
+.sticker{width:58px;height:58px;font-size:2rem;border:1px solid #eee2ae;box-shadow:none}
+.album-name{font-size:.72rem;min-height:2.5em}
+.album-type{font-size:.61rem}
+.album-checks{gap:5px;margin-top:2px}
+.album-checks label{font-size:.62rem;gap:2px}
+.album-checks input{width:14px;height:14px}
+.panel:not(.album-panel){margin:14px 12px;border-radius:13px;border:1px solid #eee;padding:16px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:62px;background:#fff;border-top:1px solid #e8e8e8;display:flex;justify-content:space-around;align-items:center;z-index:30;padding-bottom:env(safe-area-inset-bottom)}
+.bottom-nav a{color:#555;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:58px}
+.bottom-nav a span{font-size:1.45rem;line-height:1.3}.bottom-nav a small{font-size:.62rem}.bottom-nav a.active{color:#111;font-weight:900}
+footer{padding-bottom:18px}
+@media(min-width:650px){.album-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:390px){.album-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.album-card{min-height:145px}.profile-avatar{width:66px;height:66px}}
