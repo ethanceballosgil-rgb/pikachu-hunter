@@ -2,6 +2,8 @@ name: Prueba Pikachu Hunter
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 */2 * * *'
 
 jobs:
   avisar:
@@ -10,5 +12,5 @@ jobs:
       - name: Enviar notificacion
         run: |
           curl -H "Title: Pikachu Hunter" \
-          -d "¡GitHub ya puede enviarte avisos!" \
+          -d "Comprobación automática activada. Detector en desarrollo." \
           https://ntfy.sh/wany2013
