@@ -1,0 +1,23 @@
+
+{
+  "updated": "2026-11-04",
+  "source": "Pokémon GO News",
+  "pikachu": [
+    {
+      "name": "Pikachu disfrazado",
+      "type": "Disfrazado",
+      "shiny": true,
+      "dynamax": false,
+      "gigantamax": false,
+      "url": "https://pokemongo.com/news"
+    },
+    {
+      "name": "Pikachu Dinamax",
+      "type": "Dynamax",
+      "shiny": false,
+      "dynamax": true,
+      "gigantamax": false,
+      "url": "https://pokemongo.com/news"
+    }
+  ]
+}
