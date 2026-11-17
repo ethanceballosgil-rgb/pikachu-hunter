@@ -1,12 +1,28 @@
 {
-  "checked_at": "2026-11-16T10:08:49Z",
+  "checked_at": "2026-11-17T08:47:18Z",
   "source": "https://pokemongolive.com/news/?hl=es",
   "items": [
+    {
+      "id": "https://pokemongolive.com/es/news/duolingo-2026",
+      "title": "¡Capturad un nuevo idioma con Pokémon GO y Duolingo!",
+      "date": "",
+      "excerpt": "Pikachu* Meowth* Chatot* Lucario* *Con un poco de suerte, ¡podréis encontrar su versión variocolor!” Tened en cuenta que la Investigación temporal se puede obtener participando en la misión de Duolingo hasta el lunes 21 de diciembre de 2026 a las 23:59 en la hora local y completando al menos siete lecciones en días diferentes hasta el martes 29 de diciembre de 2026 a las 23:59 en la hora local. Novedad: etiqueta de idioma ¿Pikachu?",
+      "url": "https://pokemongolive.com/es/news/duolingo-2026",
+      "region_note": "Consulta el anuncio para confirmar si incluye España."
+    },
+    {
+      "id": "https://pokemongolive.com/es/news/pokemon-crocs-2026",
+      "title": "¡Llegan a Pokémon GO los objetos para el avatar de la colección Crocs Pokémon!",
+      "date": "",
+      "excerpt": "A partir de hoy, los Entrenadores podrán canjear códigos de oferta y poner estos estilos a sus avatares en el juego.* ¡Poned un toque de alegría con el zueco clásico de Pikachu para el avatar, inspirado en el zueco clásico Crocs Pikachu Pokémon!",
+      "url": "https://pokemongolive.com/es/news/pokemon-crocs-2026",
+      "region_note": "Consulta el anuncio para confirmar si incluye España."
+    },
     {
       "id": "https://pokemongolive.com/es/news/twilight-wishes-2026",
       "title": "¡Reuníos bajo el cielo estrellado durante Deseos crepusculares! — Pokémon GO",
       "date": "",
-      "excerpt": "Incursiones de nivel 1 Pikachu con corona de sol* Pikachu con corona de luna* Incursiones de nivel 3 Espeon con bufanda de sol* Umbreon con bufanda de luna* Megaincursiones Mega-Beedrill* Mega-Houndoom* Mega-Sableye* Mega-Manectric* * Con un poco de suerte, ¡os podréis encontrar uno variocolor!",
+      "excerpt": "Incursiones de nivel 1 Pikachu con corona de sol* Pikachu con corona de luna* Incursiones de nivel 3 Espeon con bufanda de sol* Umbreon con bufanda de luna* Megaincursiones Mega-Beedrill* Mega-Houndoom* Mega-Sableye* Mega-Manectric* * Con un poco de suerte, ¡podréis encontrar uno variocolor!",
       "url": "https://pokemongolive.com/es/news/twilight-wishes-2026",
       "region_note": "Consulta el anuncio para confirmar si incluye España."
     },
@@ -46,7 +62,7 @@
       "id": "https://pokemongolive.com/es/news/world-space-week-2026",
       "title": "¡Despegad con Pikachu astronauta durante la Semana Mundial del Espacio! — Pokémon GO",
       "date": "",
-      "excerpt": "Novedades ¡Despegad con Pikachu astronauta durante la Semana Mundial del Espacio! Pikachu astronauta* * Con un poco de suerte, ¡os podréis encontrar uno variocolor! Incursiones de nivel 1 Pikachu astronauta* * Con un poco de suerte, ¡os podréis encontrar uno variocolor! Completad las tareas de la investigación para ganar un encuentro con Pikachu astronauta ¡y mucho más!",
+      "excerpt": "Novedades ¡Despegad con Pikachu astronauta durante la Semana Mundial del Espacio! Pikachu astronauta* * Con un poco de suerte, ¡podréis encontrar uno variocolor! Incursiones de nivel 1 Pikachu astronauta* * Con un poco de suerte, ¡podréis encontrar uno variocolor! Completad las tareas de la investigación para ganar un encuentro con Pikachu astronauta ¡y mucho más!",
       "url": "https://pokemongolive.com/es/news/world-space-week-2026",
       "region_note": "Consulta el anuncio para confirmar si incluye España."
     },
@@ -56,14 +72,6 @@
       "date": "",
       "excerpt": "Desde el 4 de octubre de 2026 hasta el 30 de abril de 2027, los Entrenadores podrán visitar los museos de ciencia y espacio participantes y descubrir una experiencia de juego especial de Pokémon GO inspirada en las maravillas del espacio, ¡con encuentros con Pikachu astronauta! Museos participantes La experiencia de juego especial de Pokémon GO estará disponible en las ubicaciones siguientes: Museo de ciencias – Londres, Inglaterra Cité de l’espace – Toulouse, Francia Deutsches Museum – Núremberg, Alemania Museu de les Ciències – Valencia, España Space Expo – Noordwijk, Países Bajos Euro Space Center – Transinne, Bélgica Incursiones Pikachu astronauta aparecerá en las incursiones de nivel 1 en los museos participantes. Los Entrenadores que completen estas incursiones presenciales tendrán la oportunidad de capturar a Pikachu astronauta* con un fondo de lugar especial para conmemorar la vi",
       "url": "https://pokemongolive.com/es/news/european-space-agency-event",
-      "region_note": "Consulta el anuncio para confirmar si incluye España."
-    },
-    {
-      "id": "https://pokemongolive.com/es/news/boston-city-safari-know-before-you-go",
-      "title": "Pokémon GO City Safari: Boston – Know Before You GO!",
-      "date": "",
-      "excerpt": "Spin a PokéStop in the ballpark for an in-game avatar item, explore an Official Route, participate in Raid Battles with a chance to catch Pikachu with a Location Background, and more!",
-      "url": "https://pokemongolive.com/es/news/boston-city-safari-know-before-you-go",
       "region_note": "Consulta el anuncio para confirmar si incluye España."
     }
   ]
